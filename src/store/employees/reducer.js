@@ -1,6 +1,7 @@
 import { createReducer } from '../utils'
 
-const initialState = {
+export const initialState = {
+  users: [],
   isFetching: false,
 }
 
@@ -15,7 +16,7 @@ export const reducer = createReducer(initialState, {
   'SET_USERS SUCCESS'(state, action) {
     return {
       ...state,
-      ...action.payload,
+      users: [...action.payload],
       isFetching: false,
     }
   },
