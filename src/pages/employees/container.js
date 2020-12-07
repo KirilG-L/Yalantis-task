@@ -6,7 +6,8 @@ import * as React from 'react'
 
 const mapStateToProps = (state) => {
   return {
-    users: getUsersState(state),
+    users: getUsersState(state).users,
+    selectedUsers: getUsersState(state).selectedUsers,
   }
 }
 const mapDispatchToProps = (dispatch) => {
