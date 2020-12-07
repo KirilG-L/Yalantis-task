@@ -20,11 +20,13 @@ export const getFiltratedByMonthSelectedUsersStateSelector = createSelector(
       .filter((user) => selectedUsers.includes(user.id))
       .map((user) => {
         let month = MONTHS[new Date(user.dob).getMonth()]
-        console.log(month)
         result.has(month)
           ? result.set(month, [...result.get(month), user])
           : result.set(month, [{ ...user }])
       })
-    return result
+    let newMap = new Map(
+      [...result.entries()].sort((a, b) => (a[0] > b[0] ? 1 : -1))
+    )
+    return newMap
   }
 )

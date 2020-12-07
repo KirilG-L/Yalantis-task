@@ -1,0 +1,74 @@
+.page-employees {
+    margin: 20px;
+    display: flex;
+}
+
+.title {
+    margin: 5px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.page-employees__alphabet {
+    margin-bottom: 10px;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+
+}
+
+.alphabet-block {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.letter-block {
+    min-width: 140px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+.letter {
+    margin: 5px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* --- employees birthday --- */
+
+.page-employees__birthdays {
+    min-width: 360px;
+    padding: 10px;
+}
+
+.birthday-block {
+    height: 99%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    border-left: solid black 1px;
+    border-top: solid black 1px;
+}
+
+.month {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.month-block {
+    padding-top: 3px;
+}
+
+.persons-block {
+    margin: 0;
+    padding: 0;
+}
+
+.person-birthday {
+    padding: 3px 0;
+}
