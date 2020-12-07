@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { View } from './view'
 import { compose } from 'redux'
 import { onSelectingUsers } from '../../store/employees/actions'
-import { getUsersState } from '../../store/employees/selectors'
+import { getSelectedUsersStateSelector } from '../../store/employees/selectors'
 
 const mapStateToProps = (state) => {
   return {
-    selectedUsers: getUsersState(state).selectedUsers,
+    selectedUsers: getSelectedUsersStateSelector(state),
   }
 }
 

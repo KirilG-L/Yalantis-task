@@ -16,32 +16,28 @@ const View = (props) => {
   }
 
   return (
-    <div style={{display: 'flex', flexWrap: 'wrap'}}>
-      {ALPHABET.map((letter, idx) => (
-        <div key={idx}>
-          <div style={{display: 'flex' }}>{letter}</div>
-          {getFiltratedUsers(letter).map((el) => (
-            <Employee
-              key={el.id}
-              lastName={el.lastName}
-              firstName={el.firstName}
-              id={el.id}
-            />
-          ))}
-        </div>
-      ))}
-      <div className="employees-birthdays">
-        {MONTHS.map((month, idx) => <div key={idx}>
-          <div className="month">{month}</div>
-          {props.users.map( user => {
-            const date = new Date(user.dob);
-            return props.selectedUsers.includes(user.id) && date.getMonth() === idx
-                ? `${user.lastName} ${user.firstName} - ${date.toLocaleString("en-US", { month: 'long', year: 'numeric'})} year`
-                : null
-            }
+    <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {ALPHABET.map((letter, idx) => (
+          <div key={idx}>
+            <div style={{ display: 'flex' }}>{letter}</div>
+            {getFiltratedUsers(letter).map((el) => (
+              <Employee
+                key={el.id}
+                lastName={el.lastName}
+                firstName={el.firstName}
+                id={el.id}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+      <div className='employees-birthdays'>
+        {[...props.selectedByMonth.entries()].map(([ key, value ]) => <>
+            <div>{key}</div>
+            {value.map(el => <div>{el.firstName}</div>)}
+          </>
           )
-          }
-        </div>)
         }
       </div>
     </div>

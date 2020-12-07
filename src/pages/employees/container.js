@@ -1,13 +1,18 @@
-import { getUsersState } from '../../store/employees/selectors'
+import {
+  getFiltratedByMonthSelectedUsersStateSelector,
+  getSelectedUsersStateSelector,
+  getUsersStateSelector,
+} from '../../store/employees/selectors'
 import { connect } from 'react-redux'
 import { View } from './view'
 import { fetchUsersData } from '../../store/employees/actions'
-import * as React from 'react'
+import React from 'react'
 
 const mapStateToProps = (state) => {
   return {
-    users: getUsersState(state).users,
-    selectedUsers: getUsersState(state).selectedUsers,
+    users: getUsersStateSelector(state),
+    selectedUsers: getSelectedUsersStateSelector(state),
+    selectedByMonth: getFiltratedByMonthSelectedUsersStateSelector(state),
   }
 }
 const mapDispatchToProps = (dispatch) => {
