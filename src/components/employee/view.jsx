@@ -7,7 +7,7 @@ const View = (props) => {
       className={s['employee']}
     >
       <div className={s['employee_name']}>
-        {`${props.firstName} ${props.lastName}`}
+        {`${props.lastName} ${props.firstName}`}
       </div>
       <input
         className={s['employee_input']}

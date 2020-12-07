@@ -22,6 +22,6 @@ export const fetchUsersData = () => (dispatch, getState) => {
     .catch((error) => console.log(error))
 }
 
-export const onSelectingUsers = (uid) => (dispatch, action) => {
+export const onSelectingUsers = (uid) => (dispatch, getState) => {
   dispatch(ActionTypes.setSelectedUsers(uid))
 }

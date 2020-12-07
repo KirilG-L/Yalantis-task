@@ -6,6 +6,29 @@ import { routerMiddleware } from 'connected-react-router'
 
 export const history = createBrowserHistory()
 
+const saveState = (state) => {
+  try {
+    const serializedState = JSON.stringify(state)
+    window.localStorage.setItem('state', serializedState)
+  } catch (err) {
+    // Ignore write errors.
+  }
+}
+
+const loadState = () => {
+  try {
+    const serializedState = window.localStorage.getItem('state')
+    if (serializedState === null) {
+      return undefined
+    }
+    return JSON.parse(serializedState)
+  } catch (err) {
+    return undefined
+  }
+}
+
+const oldState = loadState()
+
 const composeEnhancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
@@ -17,5 +40,9 @@ const enhancer = composeEnhancers(
   applyMiddleware(routerMiddleware(history), thunk)
 )
 
-export const store = createStore(createRootReducer(history), enhancer)
+export const store = createStore(createRootReducer(history), oldState, enhancer)
 window.store = store
+
+store.subscribe(() => {
+  saveState(store.getState())
+})
