@@ -37,21 +37,26 @@ const View = (props) => {
       <div className={s['page-employees__birthdays']}>
         <div className={s['title']}>Employees birthday</div>
         <div className={s['birthday-block']}>
-          {[...props.selectedByMonth.entries()].map(([key, value]) => (
-            <div className={s['month-block']} key={key}>
-              <div className={s['month']}>{key}</div>
-              <ul className={s['persons-block']}>
-                {value.map((el, idx) => {
-                  const date = new Date(el.dob)
-                  return (
-                    <li key={el.lastName} className={s['person-birthday']}>
-                      {el.lastName} {el.firstName} - {date.getDate()} {MONTHS[date.getMonth()]}, {date.getFullYear()} year
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          ))}
+          {props.selectedUsers.length ? (
+            [...props.selectedByMonth.entries()].map(([key, value]) => (
+              <div className={s['month-block']} key={key}>
+                <div className={s['month']}>{key}</div>
+                <ul className={s['persons-block']}>
+                  {value.map((el, idx) => {
+                    const date = new Date(el.dob)
+                    return (
+                      <li key={el.lastName} className={s['person-birthday']}>
+                        {el.lastName} {el.firstName} - {date.getDate()}{' '}
+                        {MONTHS[date.getMonth()]}, {date.getFullYear()} year{' '}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            ))
+          ) : (
+            <div>'No selected employees'</div>
+          )}
         </div>
       </div>
     </div>
