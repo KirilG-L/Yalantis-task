@@ -5,7 +5,7 @@ import { createBrowserHistory } from 'history'
 import { routerMiddleware } from 'connected-react-router'
 
 export const history = createBrowserHistory({
-  basename: `${process.env.PUBLIC_URL}/`,
+  basename: `/Yalantis-task/`,
 })
 
 const saveState = (state) => {
