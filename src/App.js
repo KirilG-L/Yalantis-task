@@ -11,10 +11,12 @@ function App() {
           path={'/'}
           exact
           render={() => (
-            <div>
-              <button>
-                <Link to='/employees'>go to employees page</Link>
-              </button>
+            <div style={{ textAlign: 'center' }}>
+              <Link to='/employees'>
+                <button style={{ padding: '10px' }}>
+                  go to employees page
+                </button>
+              </Link>
             </div>
           )}
         />

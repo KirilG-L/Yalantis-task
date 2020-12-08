@@ -4,7 +4,9 @@ import { createRootReducer } from './root-reducer'
 import { createBrowserHistory } from 'history'
 import { routerMiddleware } from 'connected-react-router'
 
-export const history = createBrowserHistory()
+export const history = createBrowserHistory({
+  basename: `${process.env.PUBLIC_URL}/`,
+})
 
 const saveState = (state) => {
   try {
